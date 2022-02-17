@@ -67,13 +67,13 @@ public class Main extends JavaPlugin{
 		this.saveDefaultConfig();
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
-		ProtocolLibrary.getProtocolManager().addPacketListener(
+		/*ProtocolLibrary.getProtocolManager().addPacketListener(
 			      new PacketAdapter(this, PacketType.Status.Server.OUT_SERVER_INFO) {
 			        @Override
 			        public void onPacketSending(PacketEvent event) {
 			            handlePing(event.getPacket().getServerPings().read(0));
 			        }
-			    });
+			    });*/
 		Server s = Bukkit.getServer();
 		World sw = s.getWorld("world");
 		PluginManager pm = s.getPluginManager();
@@ -127,6 +127,9 @@ public class Main extends JavaPlugin{
 		getCommand("info").setExecutor(new InfoCommand());
 		getLogger().log(Level.FINE, "Uruchomiono");
 		s.addRecipe(Crafting.CraftingStone());
+		for(Player p : Bukkit.getOnlinePlayers()){
+			User user = new User(p);
+		}
 	}
 	
 	public void onDisable() {
@@ -172,7 +175,8 @@ public class Main extends JavaPlugin{
 			}
 			else if(clear==30) {
 				World world = Bukkit.getServer().getWorld("world");
-				List<Entity> entList = world.getEntities();
+				assert world != null;
+				List<Entity> entList = new ArrayList<>();
 				int usuniete = 0;
 				for(Entity current : entList) {
 					if(current instanceof Item) {

@@ -4,5 +4,40 @@ main: me.voten.vcore.Main
 api-version: 1.18
 prefix: VCore
 authors: [ Voten641 ]
-description: Whole Core for EasyHc servers from 2020, i need to make so much changes on this
+description: Whole Core for EasyHc servers from 2019, i need to make so much changes on this
 website: voten641.github.io
+depend: [ProtocolLib]
+commands:
+  info:
+  schowek:
+    aliases: depozyt
+  clear:
+  chat:
+  nick:
+  gm:
+    aliases: gamemode
+  fly:
+  repair:
+  vc:
+  case:
+  cases:
+  pomoc:
+  msg:
+  vip:
+  svip:
+  legenda:
+  top:
+    aliases: topka
+  setspawn:
+  spawn:
+  repairall:
+  kit:
+  drop:
+  efekty:
+  tpa:
+  tpaccept:
+  tpdeny:
+  sprawdz:
+  helpop:
+  ec:
+    aliases: enderchest

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="VCorenew:jar">
+    <output-path>$USER_HOME$/OneDrive/Pulpit/Projects/EasyHc/plugins</output-path>
+    <root id="archive" name="VCorenew.jar">
+      <element id="module-output" name="VCorenew" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/comphenix/protocol/ProtocolLib/4.7.0/ProtocolLib-4.7.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.11.0/byte-buddy-1.11.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

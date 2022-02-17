@@ -1,0 +1,8 @@
+name: VCore
+version: '1.0-SNAPSHOT'
+main: me.voten.vcore.Main
+api-version: 1.18
+prefix: VCore
+authors: [ Voten641 ]
+description: Whole Core for EasyHc servers from 2020, i need to make so much changes on this
+website: voten641.github.io

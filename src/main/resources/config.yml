@@ -1,0 +1,34 @@
+Prefix: '&aWeedCraft.eu &8>> &7'
+Delay: 40
+PermissionMessage: '&cNie masz permissji!'
+#Mozna dopisywac wiadomosci w nieskonczonosc. Wystarczy dodac np. msg6: xxx msg7: xxx
+msg1: 'Wpisz &a/drop &7aby ustawic drop z kamienia'
+msg2: 'Nie znasz komend? Wpisz &a/pomoc'
+msg3: 'Nasz sewer TS3 - &aWeedSpeak.eu'
+msg4: 'Nie masz przedmiotow? Wpisz &a/kit'
+msg5: 'Denerwuja cie wiadomosci? Wpisz &a/chat'
+
+MOTD-1: "&a&lWEEDCRAFT.EU &8>&7>&f> &c&lNiedlugo Start!"
+MOTD-2: "Przygotuj sie na pierwsza edycje!"
+
+List:
+  1: '&aWebsite: &cWeedCraft.eu'
+  2: '&aTS3: &cWeedSpeak.eu'
+  3: '&aFB: &cFb.com/WeedCrafteu'
+  
+Max-Players: 1337
+
+drop:
+  gold: 1.2
+  diamond: 0.6
+  emerald: 2
+  iron: 3
+  redstone: 3.2
+  coal: 3
+  gunpowder: 0.4
+  lapis: 1.8
+  apple: 0.8
+  obsidian: 1.1
+  book: 0.8
+  pearl: 0.015
+  case: 0.002

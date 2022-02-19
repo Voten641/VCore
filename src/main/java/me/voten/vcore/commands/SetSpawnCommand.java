@@ -17,7 +17,7 @@ public class SetSpawnCommand implements CommandExecutor {
 			World w = p.getWorld();
 			w.setSpawnLocation(l.getBlockX(), l.getBlockY(), l.getBlockZ());
 			
-			p.sendMessage("�a�lSpawn Ustawiony.");
+			p.sendMessage("§a§lSpawn Ustawiony.");
 		
 		return false;
 	}

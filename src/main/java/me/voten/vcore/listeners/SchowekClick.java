@@ -29,8 +29,8 @@ public class SchowekClick implements Listener{
 	    {
 	      ItemMeta meta = item.getItemMeta();
 	      if (meta != null){
-	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("�c�lSchowek"))){
-	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("�c�lKoxy:"))){
+	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("§c§lSchowek"))){
+	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§c§lKoxy:"))){
 		    		  e.setCancelled(true);
 	    			  if(e.getClick() == ClickType.LEFT) {
 	    				  if(user.getEnchga() > 2) {
@@ -38,7 +38,7 @@ public class SchowekClick implements Listener{
 	    					  user.setEnchga(user.getEnchga()-2);
 	    				  }
 	    				  else if(user.getEnchga() <= 0) {
-	    					  p.sendMessage("�cNie masz koxow�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz koxow§c do wyplacenia");
 	    					  }
 	    				  else {
 	    					  ItemStack kox2 = kox;
@@ -55,18 +55,18 @@ public class SchowekClick implements Listener{
 	    					  user.setEnchga(user.getEnchga()-1);
 	    				  }
 	    				  else {
-	    					  p.sendMessage("�cNie masz koxow�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz koxow§c do wyplacenia");
 	    				  }
 	    			  }
 		    		  List<String> lorekox = new ArrayList<String>();
-		    			lorekox.add("�7W schowku: �c" + user.getEnchga());
-		    			lorekox.add("�aPrawy �8przycisk myszy - Zabierz 1");
-		    			lorekox.add("�aLewy �8przycisk myszy - Zabierz do limitu");
+		    			lorekox.add("§7W schowku: §c" + user.getEnchga());
+		    			lorekox.add("§aPrawy §8przycisk myszy - Zabierz 1");
+		    			lorekox.add("§aLewy §8przycisk myszy - Zabierz do limitu");
     				  ItemMeta koxmeta = e.getCurrentItem().getItemMeta();
     				  koxmeta.setLore(lorekox);
     				  e.getCurrentItem().setItemMeta(koxmeta);
 	    		  }
-	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("�c�lRefy:"))){
+	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§c§lRefy:"))){
 		    		  e.setCancelled(true);
 	    			  if(e.getClick() == ClickType.LEFT) {
 	    				  if(user.getGa() > 12) {
@@ -74,7 +74,7 @@ public class SchowekClick implements Listener{
 	    					  user.setGa(user.getGa()-12);
 	    				  }
 	    				  else if(user.getGa() <= 0) {
-	    					  p.sendMessage("�cNie masz refow�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz refow§c do wyplacenia");
 	    					  }
 	    				  else {
 	    					  ItemStack ref2 = ref;
@@ -91,18 +91,18 @@ public class SchowekClick implements Listener{
 	    					  user.setGa(user.getGa()-1);
 	    				  }
 	    				  else {
-	    					  p.sendMessage("�cNie masz refow�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz refow§c do wyplacenia");
 	    				  }
 	    			  }
 		    		  List<String> lorekox = new ArrayList<String>();
-		    			lorekox.add("�7W schowku: �c" + user.getGa());
-		    			lorekox.add("�aPrawy �8przycisk myszy - Zabierz 1");
-		    			lorekox.add("�aLewy �8przycisk myszy - Zabierz do limitu");
+		    			lorekox.add("§7W schowku: §c" + user.getGa());
+		    			lorekox.add("§aPrawy §8przycisk myszy - Zabierz 1");
+		    			lorekox.add("§aLewy §8przycisk myszy - Zabierz do limitu");
     				  ItemMeta koxmeta = e.getCurrentItem().getItemMeta();
     				  koxmeta.setLore(lorekox);
     				  e.getCurrentItem().setItemMeta(koxmeta);
 	    		  }
-	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("�c�lPerly:"))){
+	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§c§lPerly:"))){
 		    		  e.setCancelled(true);
 	    			  if(e.getClick() == ClickType.LEFT) {
 	    				  if(user.getPearl() > 5) {
@@ -110,7 +110,7 @@ public class SchowekClick implements Listener{
 	    					  user.setPearl( user.getPearl()-5);
 	    				  }
 	    				  else if(user.getPearl() <= 0) {
-	    					  p.sendMessage("�cNie masz perel�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz perel§c do wyplacenia");
 	    					  }
 	    				  else {
 	    					  ItemStack per2 = per;
@@ -127,19 +127,19 @@ public class SchowekClick implements Listener{
 	    					  user.setPearl( user.getPearl()-1);
 	    				  }
 	    				  else {
-	    					  p.sendMessage("�cNie masz perel�c do wyplacenia");
+	    					  p.sendMessage("§cNie masz perel§c do wyplacenia");
 	    				  }
 	    			  }
 
 		    		  List<String> lorekox = new ArrayList<String>();
-		    			lorekox.add("�7W schowku: �c" + user.getPearl());
-		    			lorekox.add("�aPrawy �8przycisk myszy - Zabierz 1");
-		    			lorekox.add("�aLewy �8przycisk myszy - Zabierz do limitu");
+		    			lorekox.add("§7W schowku: §c" + user.getPearl());
+		    			lorekox.add("§aPrawy §8przycisk myszy - Zabierz 1");
+		    			lorekox.add("§aLewy §8przycisk myszy - Zabierz do limitu");
     				  ItemMeta koxmeta = e.getCurrentItem().getItemMeta();
     				  koxmeta.setLore(lorekox);
     				  e.getCurrentItem().setItemMeta(koxmeta);
 	    		  }
-	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("�7----------------------"))){
+	    		  if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§7----------------------"))){
 	    			  e.setCancelled(true);
 	    		  }
 	    	  }

@@ -39,8 +39,8 @@ public class StoneGenerator implements Listener {
 		final Location loc = b.getLocation();
 		final Location loc1 = new Location(loc.getWorld(), loc.getX(), loc.getY() + 1.0D, loc.getZ());
 		if(loc1.getBlock().getType().equals(Material.AIR) && b.getType() != null && b.getType().equals(Material.SPONGE)) {
-			if(i.getItemMeta().getDisplayName().equals("�a�lStoniarka")) {
-				e.getPlayer().sendMessage("�aPostawiono generator stone'a");
+			if(i.getItemMeta().getDisplayName().equals("§a§lStoniarka")) {
+				e.getPlayer().sendMessage("§aPostawiono generator stone'a");
 				Bukkit.getScheduler().runTaskLater(Main.getInst(), new Runnable() {
 	
 					@Override

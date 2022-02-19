@@ -14,14 +14,14 @@ public class DiscoGui {
 	public DiscoGui() {}
 
 	public static InventoryView discomenu(Player p) {
-			Inventory inv = org.bukkit.Bukkit.createInventory(null, 9, "�c�lDiscoZbroja");
+			Inventory inv = org.bukkit.Bukkit.createInventory(null, 9, "§c§lDiscoZbroja");
 			ItemStack kox = new ItemStack(Material.GOLDEN_APPLE, 2, (short)1);
 			ItemMeta i1 = kox.getItemMeta();
-			i1.setLore(Arrays.asList("�7Szansa: �c2.5%"));
+			i1.setLore(Arrays.asList("§7Szansa: §c2.5%"));
 			kox.setItemMeta(i1);
 			ItemStack ref = new ItemStack(Material.GOLDEN_APPLE, 5, (short)0);
 			ItemMeta i2 = kox.getItemMeta();
-			i2.setLore(Arrays.asList("�7Szansa: �c3%"));
+			i2.setLore(Arrays.asList("§7Szansa: §c3%"));
 			ref.setItemMeta(i2);
 			
 			inv.setItem(3, kox);

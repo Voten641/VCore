@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.logging.Level;
 
 import me.voten.vcore.utils.User;
 import org.bukkit.Bukkit;
+import org.bukkit.Chunk;
 import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -29,17 +32,18 @@ import me.voten.vcore.listeners.*;
 import me.voten.vcore.utils.Crafting;
 import me.voten.vcore.utils.Metrics;
 import me.voten.vcore.commands.*;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitScheduler;
 
 public class Main extends JavaPlugin{
 
 	private ArrayList<String> ping = new ArrayList<String>(); {
 		int i = 1;
 		while(getConfig().getString("ping"+i) != null){
-			ping.add(getConfig().getString("ping"+i).replace("&", "�"));
+			ping.add(getConfig().getString("ping"+i).replace("&", "§"));
 			i++;
 		}
 	}
-	public Map<Player, Player> spr = new HashMap<>();
 	private int clear = 0;
 	public boolean chatstatus = true;
 	private static Main inst;
@@ -177,12 +181,24 @@ public class Main extends JavaPlugin{
 				World world = Bukkit.getServer().getWorld("world");
 				assert world != null;
 				List<Entity> entList = new ArrayList<>();
-				int usuniete = 0;
-				for(Entity current : entList) {
-					if(current instanceof Item) {
-						current.remove();
-						usuniete++;
+				for(Chunk c : world.getLoadedChunks()){
+					entList.addAll(List.of(c.getEntities()));
+				}
+				Future<Integer> fusuniete = getServer().getScheduler().callSyncMethod(this, () ->{
+					int usuniete2 = 0;
+					for(Entity current : entList) {
+						if(current instanceof Item) {
+							current.remove();
+							usuniete2++;
+						}
 					}
+					return usuniete2;
+				});
+				int usuniete = 0;
+				try {
+					usuniete = fusuniete.get();
+				} catch (InterruptedException | ExecutionException e) {
+					e.printStackTrace();
 				}
 				if(usuniete == 1) {
 					Bukkit.broadcastMessage("§cUsunieto "+ usuniete +" item z ziemi!");
@@ -206,8 +222,8 @@ public class Main extends JavaPlugin{
 
 	@SuppressWarnings("deprecation")
 	private void handlePing(WrappedServerPing read) {
-		String motd1 = Main.getInst().getConfig().getString("MOTD-1").replaceAll("&", "�");
-		String motd2 = Main.getInst().getConfig().getString("MOTD-2").replaceAll("&", "�");
+		String motd1 = Main.getInst().getConfig().getString("MOTD-1").replaceAll("&", "§");
+		String motd2 = Main.getInst().getConfig().getString("MOTD-2").replaceAll("&", "§");
 		List<WrappedGameProfile> players = new ArrayList<WrappedGameProfile>();
 		for(int i=0; i<ping.size();i++) {
 			players.add(new WrappedGameProfile("1", ping.get(i)));

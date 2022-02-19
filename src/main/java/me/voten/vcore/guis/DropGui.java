@@ -68,12 +68,12 @@ public class DropGui {
 		
 		Inventory inv = org.bukkit.Bukkit.createInventory(null, 36, "§c§lDrop ze stone");
 		
-		ItemStack en = XMaterial.valueOf("LIME_GLASS_PANE").parseItem();
+		ItemStack en = XMaterial.valueOf("LIME_STAINED_GLASS_PANE").parseItem();
 	    ItemMeta ien = en.getItemMeta();
 	    ien.setDisplayName("§aWlacz wszystko");
 	    en.setItemMeta(ien);
 	    
-	    ItemStack d = XMaterial.valueOf("RED_GLASS_PANE").parseItem();
+	    ItemStack d = XMaterial.valueOf("RED_STAINED_GLASS_PANE").parseItem();
 	    ItemMeta id = d.getItemMeta();
 	    id.setDisplayName("§cWylacz wszystko");
 	    d.setItemMeta(id);

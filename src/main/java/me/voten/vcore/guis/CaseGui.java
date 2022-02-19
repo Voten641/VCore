@@ -16,33 +16,33 @@ public class CaseGui{
 	public CaseGui() {}
 
 	public static InventoryView casemenu(Player p) {
-			Inventory inv = org.bukkit.Bukkit.createInventory(null, 27, "�c�lDrop Ze Skrzynek");
+			Inventory inv = org.bukkit.Bukkit.createInventory(null, 27, "§c§lDrop Ze Skrzynek");
 			
-			ItemStack bc = new ItemBuilder(Material.BEACON).setLore("�7Szansa: �c0.5%").setName("�aB�bE�cA�dC�eO�6N").toItemStack();
-			ItemStack kl1 = new ItemBuilder(Material.DIAMOND_PICKAXE).setLore("�7Szansa: �c1%").setName("�a�lWeedCraft �7�l- Kilof 10/5/3").addEnchant(Enchantment.DIG_SPEED, 10).addEnchant(Enchantment.DURABILITY, 5).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
-			ItemStack bania = new ItemBuilder(Material.DIAMOND_HELMET).setLore("�7Szansa: �c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
-			ItemStack klata = new ItemBuilder(Material.DIAMOND_CHESTPLATE).setLore("�7Szansa: �c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
-			ItemStack spodnie = new ItemBuilder(Material.DIAMOND_LEGGINGS).setLore("�7Szansa: �c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
-			ItemStack buty = new ItemBuilder(Material.DIAMOND_BOOTS).setLore("�7Szansa: �c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
-			ItemStack miecz = new ItemBuilder(Material.DIAMOND_SWORD).setLore("�7Szansa: �c4%").addEnchant(Enchantment.DAMAGE_ALL, 5).addEnchant(Enchantment.FIRE_ASPECT, 2).toItemStack();
-			ItemStack knock = new ItemBuilder(Material.DIAMOND_SWORD).setLore("�7Szansa: �c4%").addEnchant(Enchantment.KNOCKBACK, 2).toItemStack();
-			ItemStack kl2 = new ItemBuilder(Material.DIAMOND_PICKAXE).setLore("�7Szansa: �c8%").addEnchant(Enchantment.DIG_SPEED, 5).addEnchant(Enchantment.DURABILITY, 3).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
-			ItemStack cb = new ItemBuilder(Material.COBBLESTONE, 4).setLore("�7Szansa: �c9%").toItemStack();
-			ItemStack pe = new ItemBuilder(Material.ENDER_PEARL, 4).setLore("�7Szansa: �c2.5%").toItemStack();
-			ItemStack jb = new ItemBuilder(Material.APPLE, 16).setLore("�7Szansa: �c10%").toItemStack();
-			ItemStack tnt = new ItemBuilder(Material.TNT, 16).setLore("�7Szansa: �c10%").toItemStack();
-			ItemStack zl = new ItemBuilder(Material.GOLD_INGOT, 16).setLore("�7Szansa: �c5%").toItemStack();
-			ItemStack di = new ItemBuilder(Material.DIAMOND, 8).setLore("�7Szansa: �c5%").toItemStack();
-			ItemStack em = new ItemBuilder(Material.EMERALD, 12).setLore("�7Szansa: �c5%").toItemStack();
-			ItemStack ir = new ItemBuilder(Material.IRON_INGOT, 24).setLore("�7Szansa: �c5%").toItemStack();
-			ItemStack obs = new ItemBuilder(Material.OBSIDIAN, 12).setLore("�7Szansa: �c10%").toItemStack();
+			ItemStack bc = new ItemBuilder(Material.BEACON).setLore("§7Szansa: §c0.5%").setName("§aB§bE§cA§dC§eO§6N").toItemStack();
+			ItemStack kl1 = new ItemBuilder(Material.DIAMOND_PICKAXE).setLore("§7Szansa: §c1%").setName("§a§lWeedCraft §7§l- Kilof 10/5/3").addEnchant(Enchantment.DIG_SPEED, 10).addEnchant(Enchantment.DURABILITY, 5).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
+			ItemStack bania = new ItemBuilder(Material.DIAMOND_HELMET).setLore("§7Szansa: §c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
+			ItemStack klata = new ItemBuilder(Material.DIAMOND_CHESTPLATE).setLore("§7Szansa: §c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
+			ItemStack spodnie = new ItemBuilder(Material.DIAMOND_LEGGINGS).setLore("§7Szansa: §c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
+			ItemStack buty = new ItemBuilder(Material.DIAMOND_BOOTS).setLore("§7Szansa: §c3%").addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
+			ItemStack miecz = new ItemBuilder(Material.DIAMOND_SWORD).setLore("§7Szansa: §c4%").addEnchant(Enchantment.DAMAGE_ALL, 5).addEnchant(Enchantment.FIRE_ASPECT, 2).toItemStack();
+			ItemStack knock = new ItemBuilder(Material.DIAMOND_SWORD).setLore("§7Szansa: §c4%").addEnchant(Enchantment.KNOCKBACK, 2).toItemStack();
+			ItemStack kl2 = new ItemBuilder(Material.DIAMOND_PICKAXE).setLore("§7Szansa: §c8%").addEnchant(Enchantment.DIG_SPEED, 5).addEnchant(Enchantment.DURABILITY, 3).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
+			ItemStack cb = new ItemBuilder(Material.COBBLESTONE, 4).setLore("§7Szansa: §c9%").toItemStack();
+			ItemStack pe = new ItemBuilder(Material.ENDER_PEARL, 4).setLore("§7Szansa: §c2.5%").toItemStack();
+			ItemStack jb = new ItemBuilder(Material.APPLE, 16).setLore("§7Szansa: §c10%").toItemStack();
+			ItemStack tnt = new ItemBuilder(Material.TNT, 16).setLore("§7Szansa: §c10%").toItemStack();
+			ItemStack zl = new ItemBuilder(Material.GOLD_INGOT, 16).setLore("§7Szansa: §c5%").toItemStack();
+			ItemStack di = new ItemBuilder(Material.DIAMOND, 8).setLore("§7Szansa: §c5%").toItemStack();
+			ItemStack em = new ItemBuilder(Material.EMERALD, 12).setLore("§7Szansa: §c5%").toItemStack();
+			ItemStack ir = new ItemBuilder(Material.IRON_INGOT, 24).setLore("§7Szansa: §c5%").toItemStack();
+			ItemStack obs = new ItemBuilder(Material.OBSIDIAN, 12).setLore("§7Szansa: §c10%").toItemStack();
 			ItemStack kox = new ItemStack(Material.GOLDEN_APPLE, 2, (short)1);
 			ItemMeta i1 = kox.getItemMeta();
-			i1.setLore(Arrays.asList("�7Szansa: �c2.5%"));
+			i1.setLore(Arrays.asList("§7Szansa: §c2.5%"));
 			kox.setItemMeta(i1);
 			ItemStack ref = new ItemStack(Material.GOLDEN_APPLE, 5, (short)0);
 			ItemMeta i2 = kox.getItemMeta();
-			i2.setLore(Arrays.asList("�7Szansa: �c3%"));
+			i2.setLore(Arrays.asList("§7Szansa: §c3%"));
 			ref.setItemMeta(i2);
 			
 			inv.setItem(0, bc);

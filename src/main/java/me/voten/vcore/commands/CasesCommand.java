@@ -20,10 +20,10 @@ public class CasesCommand implements CommandExecutor {
 		ItemStack i = new ItemStack(Material.ACACIA_DOOR);
 	    ItemMeta on = i.getItemMeta();
 	    	ArrayList<String> loreon = new ArrayList<String>();
-		    loreon.add("�7� Postaw aby otworzyc");
-		    loreon.add("�7� Drop mozna sprawdzic pod komenda �a/case");
+		    loreon.add("§7§ Postaw aby otworzyc");
+		    loreon.add("§7§ Drop mozna sprawdzic pod komenda §a/case");
 		    on.setLore(loreon);
-		    on.setDisplayName("�a�lWeedCase");
+		    on.setDisplayName("§a§lWeedCase");
 		    
 		return on;
 	}

@@ -14,11 +14,11 @@ public class HelpopCommand implements CommandExecutor{
 		Player p = (Player) arg0;
 		
 		if(arg3.length<1) {
-			p.sendMessage("�cPoprawne uzycie: /helpop [wiadomosc]");
+			p.sendMessage("§cPoprawne uzycie: /helpop [wiadomosc]");
 			return true;
 		}
 		
-		p.sendMessage("�cWiadomosc zostala wyslana");
+		p.sendMessage("§cWiadomosc zostala wyslana");
 
 		StringBuilder message = new StringBuilder();
 		for(int i = 0; i < arg3.length; i++) {
@@ -26,7 +26,7 @@ public class HelpopCommand implements CommandExecutor{
 		}
 		for(Player pl : Bukkit.getOnlinePlayers()){
 			if(pl.hasPermission("core.pom")) {
-				pl.sendMessage("�8[HELPOP] �a" + p.getDisplayName() + " �c" + message);
+				pl.sendMessage("§8[HELPOP] §a" + p.getDisplayName() + " §c" + message);
 			}
 		}
 		return false;

@@ -38,6 +38,9 @@ public class User {
     private boolean playerteleporting;
     private Player teleporttoplayer;
     private List<Player> teleportsfromplayers;
+    private boolean cheatcheck;
+    public Player cheatcheckby;
+    private Player checkingplayer;
     private final HashMap<Item, Boolean> drops = Maps.newHashMap();
     private static HashMap<UUID, User> userByUUID = Maps.newHashMap();
     private HashMap<Integer, ItemStack> enderchestitems = Maps.newHashMap();
@@ -53,8 +56,7 @@ public class User {
         File file = new File(Main.getPlugin(Main.class).getDataFolder(), "playerData/" + p.getUniqueId() + ".yml");
         if(!file.exists()){
             try{
-                if(!file.createNewFile()) Main.getPlugin(Main.class).getLogger().log(Level.WARNING, "PlayerData File creation failed.");
-                else{
+                file.createNewFile();
                     FileConfiguration config = YamlConfiguration.loadConfiguration(file);
                     config.set("deaths", 0);
                     config.set("kills", 0);
@@ -72,8 +74,8 @@ public class User {
                     for(int i = 0; i < enderchestslots; i++){
                         config.set("enderchestitem"+i, new ItemStack(Material.AIR));
                     }
-                }
-            } catch (IOException e) {
+                    config.save(file);
+                } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -92,6 +94,9 @@ public class User {
         dropmessages = config.getBoolean("dropmessages");
         globalmessages = config.getBoolean("globalmessages");
         cobbledrop = true;
+        cheatcheck = false;
+        cheatcheckby = null;
+        checkingplayer = null;
         for(int i = 0; i < enderchestslots; i++){
             enderchestitems.put(i, config.getItemStack("enderchestitem"+i));
         }
@@ -115,6 +120,11 @@ public class User {
         config.set("globalmessages", globalmessages);
         for(int i = 0; i < enderchestslots; i++){
             config.set("enderchestitem"+i, enderchestitems.get(i));
+        }
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -284,8 +294,27 @@ public class User {
         return teleportsfromplayers;
     }
 
-    public void setTeleportsfromplayers(List<Player> teleportsfromplayers) {
-        this.teleportsfromplayers = teleportsfromplayers;
+    public boolean isCheatcheck() {
+        return cheatcheck;
     }
 
+    public void setCheatcheck(boolean cheatcheck) {
+        this.cheatcheck = cheatcheck;
+    }
+
+    public void setPlayerCheatCheck(Player cheatcheckby) {
+        this.cheatcheckby = cheatcheckby;
+    }
+
+    public Player getPlayerCheatCheck() {
+        return cheatcheckby;
+    }
+
+    public Player getCheckingplayer() {
+        return checkingplayer;
+    }
+
+    public void setCheckingplayer(Player checkingplayer) {
+        this.checkingplayer = checkingplayer;
+    }
 }

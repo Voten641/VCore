@@ -16,8 +16,8 @@ public class ChatGui {
 
 	private static String setItem(Boolean bol){
 		String s = String.valueOf(bol);
-		s=s.replace("true", "LIME_GLASS_PANE");
-		s=s.replace("false", "RED_GLASS_PANE");
+		s=s.replace("true", "LIME_STAINED_GLASS_PANE");
+		s=s.replace("false", "RED_STAINED_GLASS_PANE");
 		return s;
 	}
 	private static String setStatus(Boolean bol){
@@ -80,10 +80,10 @@ public class ChatGui {
 		globalitem.setItemMeta(im);
 		inv.setItem(5, globalitem);
 
-	    ItemStack br = XMaterial.valueOf("GRAY_GLASS_PANE").parseItem();
+	    ItemStack br = XMaterial.valueOf("GRAY_STAINED_GLASS_PANE").parseItem();
 	    ItemMeta ibr = br.getItemMeta();
 		assert ibr != null;
-		ibr.setDisplayName("�7Brak");
+		ibr.setDisplayName("§7Brak");
 	    br.setItemMeta(ibr);
 	    inv.setItem(6, br);
 	    inv.setItem(7, br);

@@ -36,6 +36,7 @@ public class OnMenuClick implements Listener{
 
 		Player p = (Player) e.getWhoClicked();
 		User user = User.getUserByUUID(p.getUniqueId());
+		assert user != null;
 	    if (item != null)
 	    {
 	      ItemMeta meta = item.getItemMeta();
@@ -106,38 +107,20 @@ public class OnMenuClick implements Listener{
 	    	  }
 	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("§c§lKonfiguracja Chatu"))){
 	    		  e.setCancelled(true);
-	    		  
 	              if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci automatyczne"))){
 	            	  user.setAutomaticchatmessages(!user.isAutomaticchatmessages());
-	            	  p.closeInventory();
-	            	  ChatGui.menuchat(p);
-	                  return;
 	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci ze skrzynek"))){
 	            	  user.setCasechatmessages(!user.isCasechatmessages());
-	            	  p.closeInventory();
-	                  ChatGui.menuchat(p);
-	                  return;
 	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci prywatne"))){
 	            	  user.setPrivatemessages(!user.isPrivatemessages());
-	            	  p.closeInventory();
-	                  ChatGui.menuchat(p);
-	                  return;
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o zabojstwach"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o zabójstwach"))){
 	            	  user.setKillmessages(!user.isKillmessages());
-	            	  p.closeInventory();
-	                  ChatGui.menuchat(p);
-	                  return;
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o dropie"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o Dropie"))){
 	            	  user.setDropmessages(!user.isDropmessages());
-	            	  p.closeInventory();
-	                  ChatGui.menuchat(p);
-	                  return;
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci globalne graczy"))){
-	            	  user.setGlobalmessages(!user.isGlobalmessages());
-	            	  p.closeInventory();
-	                  ChatGui.menuchat(p);
-	                  return;
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci globalne"))){
+					  user.setGlobalmessages(!user.isGlobalmessages());
 	              }
+				  ChatGui.menuchat(p);
 	    	  }
 	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("§c§lDrop ze stone"))){
 	    		  e.setCancelled(true);

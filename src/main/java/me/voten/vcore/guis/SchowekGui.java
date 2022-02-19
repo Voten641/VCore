@@ -18,7 +18,7 @@ public class SchowekGui {
 		
 		Inventory inv = Bukkit.createInventory(null, 9, "§c§lSchowek");
 		
-		ItemStack sz = XMaterial.valueOf("GRAY_GLASS_PANE").parseItem();
+		ItemStack sz = XMaterial.valueOf("GRAY_STAINED_GLASS_PANE").parseItem();
 		ItemMeta sz2 = sz.getItemMeta();
 		assert sz2 != null;
 		sz2.setDisplayName("§7----------------------");

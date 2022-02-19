@@ -17,7 +17,7 @@ public class OnMoveListener implements Listener {
 		if(user.isSpawnteleporting()) {
 			if(e.getFrom().getBlockX() != e.getTo().getBlockX() || e.getFrom().getBlockY() != e.getTo().getBlockY() || e.getFrom().getBlockZ() != e.getTo().getBlockZ()) {
 				user.setSpawnteleporting(false);
-				p.sendMessage("�cAnulowano teleportacje");
+				p.sendMessage("§cAnulowano teleportacje");
 			}
 		}
 		if(user.isPlayerteleporting()) {
@@ -26,7 +26,7 @@ public class OnMoveListener implements Listener {
 				user.setPlayerteleporting(false);
 				user.setTeleporttoplayer(null);
 				User.getUserByUUID(tep.getUniqueId()).getTeleportsfromplayers().remove(p);
-				p.sendMessage("�cAnulowano teleportacje");
+				p.sendMessage("§cAnulowano teleportacje");
 			}
 		}
 	}

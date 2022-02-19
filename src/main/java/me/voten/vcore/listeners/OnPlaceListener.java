@@ -40,7 +40,7 @@ public class OnPlaceListener implements Listener{
 			Random rand = new Random();
 			int number = rand.nextInt(1000)+1;
 			ItemStack bc = new ItemStack(Material.BEACON);
-			ItemStack kl1 = new ItemBuilder(Material.DIAMOND_PICKAXE).setName("�a�lWeedCraft �7�l- Kilof 10/5/3").addEnchant(Enchantment.DIG_SPEED, 10).addEnchant(Enchantment.DURABILITY, 5).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
+			ItemStack kl1 = new ItemBuilder(Material.DIAMOND_PICKAXE).setName("§a§lWeedCraft §7§l- Kilof 10/5/3").addEnchant(Enchantment.DIG_SPEED, 10).addEnchant(Enchantment.DURABILITY, 5).addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 3).toItemStack();
 			ItemStack bania = new ItemBuilder(Material.DIAMOND_HELMET).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
 			ItemStack klata = new ItemBuilder(Material.DIAMOND_CHESTPLATE).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
 			ItemStack spodnie = new ItemBuilder(Material.DIAMOND_LEGGINGS).addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4).addEnchant(Enchantment.DURABILITY, 3).toItemStack();
@@ -62,83 +62,83 @@ public class OnPlaceListener implements Listener{
 			String wiad;
 			if(number <= 5) {
 				p.getWorld().dropItem(loc, bc);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �c�lBEACON";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §c§lBEACON";
 			}
 			else if(number > 5 && number < 15) {
 				p.getWorld().dropItem(loc, kl1);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �c�l Kilof 10/5/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §c§l Kilof 10/5/3";
 			}
 			else if(number > 15 && number < 45) {
 				p.getWorld().dropItem(loc, bania);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cHelm 4/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cHelm 4/3";
 			}
 			else if(number > 45 && number < 65) {
 				p.getWorld().dropItem(loc, klata);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cKlate 4/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cKlate 4/3";
 			}
 			else if(number > 75 && number < 95) {
 				p.getWorld().dropItem(loc, spodnie);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cSpodnie 4/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cSpodnie 4/3";
 			}
 			else if(number > 105 && number < 125) {
 				p.getWorld().dropItem(loc, buty);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cButy 4/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cButy 4/3";
 			}
 			else if(number > 135 && number < 160) {
 				p.getWorld().dropItem(loc, kox);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �c2xKoxy";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §c2xKoxy";
 			}
 			else if(number > 160 && number < 190) {
 				p.getWorld().dropItem(loc, ref);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �c5xRefy";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §c5xRefy";
 			}
 			else if(number > 190 && number < 230) {
 				p.getWorld().dropItem(loc, miecz);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cMiecz 5/2";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cMiecz 5/2";
 			}
 			else if(number > 230 && number < 270) {
 				p.getWorld().dropItem(loc, knock);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �cMiecz KnockBack";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §cMiecz KnockBack";
 			}
 			else if(number > 270 && number < 320) {
 				p.getWorld().dropItem(loc, zl);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �e16xZloto";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §e16xZloto";
 			}
 			else if(number > 320 && number < 370) {
 				p.getWorld().dropItem(loc, di);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �b8xDiament";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §b8xDiament";
 			}
 			else if(number > 370 && number < 420) {
 				p.getWorld().dropItem(loc, em);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �a12xEmerald";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §a12xEmerald";
 			}
 			else if(number > 420 && number < 470) {
 				p.getWorld().dropItem(loc, ir);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �724xZelazo";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §724xZelazo";
 			}
 			else if(number > 470 && number < 550) {
 				p.getWorld().dropItem(loc, kl2);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �7Kilof 5/3/3";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §7Kilof 5/3/3";
 			}
 			else if(number > 550 && number < 650) {
 				p.getWorld().dropItem(loc, jb);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �716xJablko";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §716xJablko";
 			}
 			else if(number > 650 && number < 750) {
 				p.getWorld().dropItem(loc, tnt);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �716xTnT";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §716xTnT";
 			}
 			else if(number > 750 && number < 775) {
 				p.getWorld().dropItem(loc, pe);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �c4xPerela";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §c4xPerela";
 			}
 			else if(number > 775 && number < 875) {
 				p.getWorld().dropItem(loc, obs);
-				wiad = "�a" + p.getDisplayName() + "�7 Wylosowal >> �812xObsydian";
+				wiad = "§a" + p.getDisplayName() + "§7 Wylosowal >> §812xObsydian";
 			}
 			else {
 				p.getWorld().dropItem(loc, cb);
-				wiad = "�a" + "�a" + p.getDisplayName() + "�7 Wylosowal >> �816xCobblestone";
+				wiad = "§a" + "§a" + p.getDisplayName() + "§7 Wylosowal >> §816xCobblestone";
 			}
 			
 			for(Player po : Bukkit.getOnlinePlayers()){

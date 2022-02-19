@@ -184,7 +184,7 @@ public class KitCommand implements CommandExecutor {
 		h = (czas % 86400 ) / 3600 ;
 		m = ((czas % 86400 ) % 3600 ) / 60; 
 		s = ((czas % 86400 ) % 3600 ) % 60  ;
-		p.sendMessage("�cTen kit mozesz odebrac za "+ h+":"+m+":"+s);
+		p.sendMessage("§cTen kit mozesz odebrac za "+ h+":"+m+":"+s);
 		
 	}
 

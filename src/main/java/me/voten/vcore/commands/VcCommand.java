@@ -30,7 +30,7 @@ public class VcCommand implements CommandExecutor {
 			}
 		}
 		else {
-			sender.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "�"));
+			sender.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "§"));
 		}
 		
 		return false;

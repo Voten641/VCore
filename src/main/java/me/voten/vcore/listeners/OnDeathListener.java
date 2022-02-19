@@ -20,7 +20,7 @@ public class OnDeathListener implements Listener {
 			}
 		};
 		task.runTaskLater(Main.getInst(), 1*20);
-	    p.sendTitle("�c�lZginales!", "�cNie poddawaj sie, graj dalej :)");
+	    p.sendTitle("§c§lZginales!", "§cNie poddawaj sie, graj dalej :)");
 	}
 	
 }

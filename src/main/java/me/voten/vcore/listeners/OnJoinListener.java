@@ -29,10 +29,14 @@ public class OnJoinListener implements Listener {
 	
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e) {
-		if(Main.getInst().spr.containsValue(e.getPlayer())) {
-			Main.getInst().getServer().broadcastMessage("�cGracz " + e.getPlayer().getDisplayName() + " wylogowal sie podczas sprawdzania!");
+		User user = User.getUserByUUID(e.getPlayer().getUniqueId());
+		if(user.isCheatcheck()) {
+			Main.getInst().getServer().broadcastMessage("§cGracz " + e.getPlayer().getDisplayName() + " wylogowal sie podczas sprawdzania!");
+			User.getUserByUUID(user.getPlayerCheatCheck().getUniqueId()).setCheckingplayer(null);
+			user.setCheatcheck(false);
+			user.setPlayerCheatCheck(null);
 		}
-		User.getUserByUUID(e.getPlayer().getUniqueId()).saveUser();
+		user.saveUser();
 		e.setQuitMessage(null);
 	}
 

@@ -14,8 +14,8 @@ public class Crafting {
 	public static Recipe CraftingStone() {
 		ItemStack Stoniarka = new ItemStack(Material.SPONGE, 1);
 		ItemMeta im = Stoniarka.getItemMeta();
-		im.setDisplayName("�a�lStoniarka");
-		im.setLore(Arrays.asList("�8Postaw na ziemi aby zaczelo generowac stone!"));
+		im.setDisplayName("§a§lStoniarka");
+		im.setLore(Arrays.asList("§8Postaw na ziemi aby zaczelo generowac stone!"));
 		Stoniarka.setItemMeta(im);
 		
 		ShapedRecipe Stoniarka2 = new ShapedRecipe(Stoniarka);

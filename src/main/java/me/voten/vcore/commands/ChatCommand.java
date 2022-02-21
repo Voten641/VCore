@@ -16,12 +16,11 @@ public class ChatCommand implements CommandExecutor {
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String l, String[] args)
 	  {
-	    Player p = (Player) sender;
-	    
 	    if (!(sender instanceof Player)) {
-	      sender.sendMessage("§4Blad: §cNie mozesz wykonac tego z consoli!");
+	      sender.sendMessage(Main.message("console_error_command"));
 	      return true;
 	    }
+		Player p = (Player) sender;
 	    if(args.length == 1 && args[0].equalsIgnoreCase("clear")) {
 	    	if(sender.hasPermission("vcore.chatclear")) {
 				for(Player pl : Bukkit.getOnlinePlayers()){
@@ -30,7 +29,7 @@ public class ChatCommand implements CommandExecutor {
 							pl.sendMessage("");
 						}
 					}
-					pl.sendMessage("§7Chat zostal wyczyszczony przez §a" + sender.getName());
+					pl.sendMessage(Main.messagereplace("chat_clear", "%name", p.getName()));
 				}
 	    	}
 	    	else {
@@ -41,11 +40,11 @@ public class ChatCommand implements CommandExecutor {
 	    else if(args.length == 1 && args[0].equalsIgnoreCase("on")) {
 	    	if(sender.hasPermission("vcore.chatenable")) {
 		    	if(!Main.getInst().chatstatus) {
-		    		Bukkit.broadcastMessage("§7Chat zostal wlaczony przez §a" + sender.getName());
+		    		Bukkit.broadcastMessage(Main.messagereplace("chat_on", "%name", p.getName()));
 		    		Main.getInst().chatstatus = true;
 		    	}
 		    	else {
-		    		sender.sendMessage("§cChat jest juz wlaczony!");
+		    		sender.sendMessage(Main.message("chat_already_on"));
 		    	}
 	    	}
 	    	else {
@@ -57,10 +56,10 @@ public class ChatCommand implements CommandExecutor {
 	    	if(sender.hasPermission("vcore.chatdisable")) {
 		    	if(Main.getInst().chatstatus) {
 		    		Main.getInst().chatstatus = false;
-		    		Bukkit.broadcastMessage("§7Chat zostal wylaczony przez §a" + sender.getName());
+		    		Bukkit.broadcastMessage(Main.messagereplace("chat__off", "%name", p.getName()));
 		    	}
 		    	else {
-		    		sender.sendMessage("§cChat jest juz wylaczony!");
+		    		sender.sendMessage(Main.message("chat_already_off"));
 		    	}
 		    }
 	    	else {

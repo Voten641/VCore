@@ -1,5 +1,6 @@
 package me.voten.vcore.commands;
 
+import me.voten.vcore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,11 +15,11 @@ public class HelpopCommand implements CommandExecutor{
 		Player p = (Player) arg0;
 		
 		if(arg3.length<1) {
-			p.sendMessage("§cPoprawne uzycie: /helpop [wiadomosc]");
+			p.sendMessage(Main.messagereplace("usage", "%command", "/helpop [text]"));
 			return true;
 		}
 		
-		p.sendMessage("§cWiadomosc zostala wyslana");
+		p.sendMessage(Main.message("helpop_sent"));
 
 		StringBuilder message = new StringBuilder();
 		for(int i = 0; i < arg3.length; i++) {

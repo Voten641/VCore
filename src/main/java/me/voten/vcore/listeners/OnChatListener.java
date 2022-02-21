@@ -28,14 +28,14 @@ public class OnChatListener implements Listener{
 		Player p = e.getPlayer();
 		User user = User.getUserByUUID(p.getUniqueId());
 		if(!user.isGlobalmessages() && !e.getPlayer().hasPermission("vcore.globalmessageignore")) {
-			e.getPlayer().sendMessage("§cNie mozesz wysylac wiadomosci jezeli masz wylaczony chat");
+			e.getPlayer().sendMessage(Main.message("player_chat_disabled"));
 			e.setCancelled(true);
 		}
 		
 		String message;
 		if(!e.getPlayer().hasPermission("vcore.ignorechatstatus") && !Main.getInst().chatstatus) {
 				e.setCancelled(true);
-				e.getPlayer().sendMessage("§cChat jest wylaczony!");
+				e.getPlayer().sendMessage(Main.message("chat_off_message"));
 		}
 		if(e.getPlayer().hasPermission("vcore.chatcolors")) {
 			message = e.getMessage().replace("&", "§");

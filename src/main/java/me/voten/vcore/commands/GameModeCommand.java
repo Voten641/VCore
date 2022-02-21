@@ -19,51 +19,50 @@ public class GameModeCommand implements CommandExecutor{
 		if(sender.hasPermission("core.gm")) {
 			if(args.length == 2) {
 				p = Bukkit.getPlayer(args[1]);
-				if(args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")) {
-					p.setGameMode(GameMode.SURVIVAL);
-					p.sendMessage("§7Zmieniono tryb gry na §aSurvival");
-				}
-				else if(args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative")) {
-					p.setGameMode(GameMode.CREATIVE);
-					p.sendMessage("§7Zmieniono tryb gry na §aCreative");
-				}
-				else if(args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")) {
-					p.setGameMode(GameMode.ADVENTURE);
-					p.sendMessage("§7Zmieniono tryb gry na §aAdventure");
-				}
-				else if(args[0].equalsIgnoreCase("3") || args[0].equalsIgnoreCase("spectator")) {
-					p.setGameMode(GameMode.SPECTATOR);
-					p.sendMessage("§7Zmieniono tryb gry na §aAdventure");
-				}
+				changegm(p, args[0]);
 			}
 			else if(args.length == 1) {
 				p = (Player) sender;
-				if(args[0].equalsIgnoreCase("0") || args[0].equalsIgnoreCase("survival")) {
-					p.setGameMode(GameMode.SURVIVAL);
-					p.sendMessage("§7Zmieniono tryb gry na §aSurvival");
-				}
-				else if(args[0].equalsIgnoreCase("1") || args[0].equalsIgnoreCase("creative")) {
-					p.setGameMode(GameMode.CREATIVE);
-					p.sendMessage("§7Zmieniono tryb gry na §aCreative");
-				}
-				else if(args[0].equalsIgnoreCase("2") || args[0].equalsIgnoreCase("adventure")) {
-					p.setGameMode(GameMode.ADVENTURE);
-					p.sendMessage("§7Zmieniono tryb gry na §aAdventure");
-				}
-				else if(args[1].equalsIgnoreCase("3") || args[1].equalsIgnoreCase("spectator")) {
-					p.setGameMode(GameMode.SPECTATOR);
-					p.sendMessage("§7Zmieniono tryb gry na §aAdventure");
-				}
+				changegm(p, args[0]);
 			}
 			else {
-				sender.sendMessage("§cMusisz podac tryb gry!");
+				sender.sendMessage(Main.message("gamemode_error"));
 			}
 		}
 		else {
-			p.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "§"));
+			p.sendMessage(Main.message("permission_message"));
 		}
 		
 		return true;
+	  }
+
+	  public void changegm(Player p, String arg){
+		switch (arg){
+			case "0":
+			case "survival":
+			case "s":
+				p.setGameMode(GameMode.SURVIVAL);
+				p.sendMessage(Main.messagereplace("gamemode_change", "%gm", p.getGameMode().toString()));
+				break;
+			case "1":
+			case "creative":
+			case "c":
+				p.setGameMode(GameMode.CREATIVE);
+				p.sendMessage(Main.messagereplace("gamemode_change", "%gm", p.getGameMode().toString()));
+				break;
+			case "2":
+			case "adventure":
+			case "a":
+				p.setGameMode(GameMode.ADVENTURE);
+				p.sendMessage(Main.messagereplace("gamemode_change", "%gm", p.getGameMode().toString()));
+				break;
+			case "3":
+			case "spectator":
+			case "sp":
+				p.setGameMode(GameMode.SPECTATOR);
+				p.sendMessage(Main.messagereplace("gamemode_change", "%gm", p.getGameMode().toString()));
+				break;
+		}
 	  }
 
 }

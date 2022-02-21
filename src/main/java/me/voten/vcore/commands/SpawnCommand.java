@@ -28,15 +28,7 @@ public class SpawnCommand implements CommandExecutor{
 		Player p = (Player) arg0;
 		User user = User.getUserByUUID(p.getUniqueId());
 		user.setSpawnteleporting(true);
-		int delay;
-		if(p.hasPermission("vcore.admin")) {
-			delay = 40;
-			p.sendMessage("§aTeleportacja nast§pi za 2 sekundy");
-		}
-		else {
-			delay = 200;
-			p.sendMessage("§aTeleportacja nast§pi za 10 sekund");
-		}
+		p.sendMessage(Main.messagereplace("teleporting", "%seconds", "10"));
 		
 		
 		task = new BukkitRunnable() {
@@ -49,7 +41,7 @@ public class SpawnCommand implements CommandExecutor{
 					user.setSpawnteleporting(false);
 				}
 			}	
-		};task.runTaskLater(Main.getInst(), delay);
+		};task.runTaskLater(Main.getInst(), 200);
 		return false;
 	}
 

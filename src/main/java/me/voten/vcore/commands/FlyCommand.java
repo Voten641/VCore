@@ -16,10 +16,10 @@ public class FlyCommand implements CommandExecutor {
 		Player p = (Player) sender;
 		if(p.hasPermission("core.fly")) {
 			p.setAllowFlight(!p.getAllowFlight());
-			p.sendMessage("§7Zmieniono tryb latania");
+			p.sendMessage(Main.message("fly_change"));
 		}
 		else {
-			p.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "§"));
+			p.sendMessage(Main.message("permission_message"));
 		}
 		
 		return false;

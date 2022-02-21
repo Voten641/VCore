@@ -1,5 +1,6 @@
 package me.voten.vcore.commands;
 
+import me.voten.vcore.Main;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
@@ -17,7 +18,7 @@ public class SetSpawnCommand implements CommandExecutor {
 			World w = p.getWorld();
 			w.setSpawnLocation(l.getBlockX(), l.getBlockY(), l.getBlockZ());
 			
-			p.sendMessage("§a§lSpawn Ustawiony.");
+			p.sendMessage(Main.message("spawn_set"));
 		
 		return false;
 	}

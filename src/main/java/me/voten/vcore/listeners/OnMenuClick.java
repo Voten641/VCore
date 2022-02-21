@@ -42,7 +42,7 @@ public class OnMenuClick implements Listener{
 	      ItemMeta meta = item.getItemMeta();
 	      if (meta != null)
 	      {
-	    	  if(e.getView().getTitle() != null && e.getView().getTitle().equalsIgnoreCase("§c§lDrop Ze Skrzynek")) {
+	    	  if(e.getView().getTitle() != null && e.getView().getTitle().equalsIgnoreCase(Main.message("chat_title"))) {
 	    		  e.setCancelled(true);
 	    	  }
 	    	  if(e.getView().getTitle() != null && e.getView().getTitle().equalsIgnoreCase("§c§lKity")) {
@@ -65,7 +65,7 @@ public class OnMenuClick implements Listener{
 	    			  KitGui.kitmenu(p);
 	    		  }
 	    	  }
-	    	  if(e.getView().getTitle() != null && e.getView().getTitle().equalsIgnoreCase("§c§lEfekty")) {
+	    	  if(e.getView().getTitle() != null && e.getView().getTitle().equalsIgnoreCase(Main.message("effect_title"))) {
 	    		  e.setCancelled(true);
 	    		  if(meta.getDisplayName() != null && meta.getDisplayName().equals("§a§lHaste II")) {
 	    			  if(p.getInventory().contains(Material.EMERALD_BLOCK, 16)) {
@@ -105,44 +105,44 @@ public class OnMenuClick implements Listener{
 	    			  EfektyGui.efektygui(p);
 	    		  }
 	    	  }
-	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("§c§lKonfiguracja Chatu"))){
+	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals(Main.message("chat_title")))){
 	    		  e.setCancelled(true);
-	              if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci automatyczne"))){
+	              if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("automatic_messages")))){
 	            	  user.setAutomaticchatmessages(!user.isAutomaticchatmessages());
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci ze skrzynek"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("case_messages")))){
 	            	  user.setCasechatmessages(!user.isCasechatmessages());
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci prywatne"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("private_messages")))){
 	            	  user.setPrivatemessages(!user.isPrivatemessages());
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o zabójstwach"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("kill_messages")))){
 	            	  user.setKillmessages(!user.isKillmessages());
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci o Dropie"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("drop_messages")))){
 	            	  user.setDropmessages(!user.isDropmessages());
-	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals("§aWiadomosci globalne"))){
+	              }if ((meta.getDisplayName() != null) && (meta.getDisplayName().equals(Main.message("global_messages")))){
 					  user.setGlobalmessages(!user.isGlobalmessages());
 	              }
 				  ChatGui.menuchat(p);
 	    	  }
-	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals("§c§lDrop ze stone"))){
+	    	  if ((e.getView().getTitle() != null) && (e.getView().getTitle().equals(Main.message("drop_title")))){
 	    		  e.setCancelled(true);
 				  NamespacedKey key = new NamespacedKey(Main.getPlugin(Main.class), "itemclass");
 				  PersistentDataType<byte[], Item> itemclasstype = new ConfigurationSerializableDataType<>(Item.class);
 				  PersistentDataContainer pdc = e.getCurrentItem().getItemMeta().getPersistentDataContainer();
 				  Item itm = pdc.get(key, itemclasstype);
 				  Item itm2 = new Item(new ItemStack(Material.STONE), 1.0,1,1,1,1.0,"WRONG ITEM");
-				  if(!Objects.equals(itm, itm2)){
+				  if(itm != itm2){
 					  user.setDrop(itm, !user.getDrop(itm));
 				  }
 	    		  if(meta.getDisplayName() != null) {
-					  if ((meta.getDisplayName().equals("§aWlacz wszystko"))){
+					  if ((meta.getDisplayName().equals(Main.message("enable_all")))){
 						  for(Item item2 : Item.allItems){
 							  user.setDrop(item2, true);
 						  }
-		              }if ((meta.getDisplayName().equals("§cWylacz wszystko"))){
+		              }if ((meta.getDisplayName().equals(Main.message("disable_all")))){
 						  for(Item item2 : Item.allItems){
 							  user.setDrop(item2, false);
 						  }
 		              }
-		              if(meta.getDisplayName().equals("§cDrop ze skrzynek")) {
+		              if(meta.getDisplayName().equals(Main.message("case_title"))) {
 		            	  p.closeInventory();
 		            	  p.chat("/case");
 		            	  return;

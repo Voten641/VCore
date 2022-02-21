@@ -29,11 +29,11 @@ public class RepairCommand implements CommandExecutor {
 				assert dm != null;
 				dm.setDamage(0);
 				it.setItemMeta(dm);
+				p.sendMessage(Main.message("repair"));
 			}
 		}
 		else {
-			p.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").
-					replace("&", "§"));
+			p.sendMessage(Main.message("permission_message"));
 		}
 		return false;
 	}

@@ -48,7 +48,7 @@ public class DropGui {
 		lst.add("");
 		lst.add("§8§lDrop: §aWlaczony");
 		st.setLore(lst);
-		st.setDisplayName("§7WeedCase");
+		st.setDisplayName(Main.message("case_name"));
 		item.setItemMeta(st);
 		return item;
 	}public static ItemStack dCase() {
@@ -59,28 +59,28 @@ public class DropGui {
 		lst.add("");
 		lst.add("§8§lDrop: §cWylaczony");
 		st.setLore(lst);
-		st.setDisplayName("§7WeedCase");
+		st.setDisplayName(Main.message("case_name"));
 		item.setItemMeta(st);
 		return item;
 	}
 	
 	public static InventoryView menudrop(Player p) {
 		
-		Inventory inv = org.bukkit.Bukkit.createInventory(null, 36, "§c§lDrop ze stone");
+		Inventory inv = org.bukkit.Bukkit.createInventory(null, 36, Main.message("drop_title"));
 		
 		ItemStack en = XMaterial.valueOf("LIME_STAINED_GLASS_PANE").parseItem();
 	    ItemMeta ien = en.getItemMeta();
-	    ien.setDisplayName("§aWlacz wszystko");
+	    ien.setDisplayName(Main.message("enable_all"));
 	    en.setItemMeta(ien);
 	    
 	    ItemStack d = XMaterial.valueOf("RED_STAINED_GLASS_PANE").parseItem();
 	    ItemMeta id = d.getItemMeta();
-	    id.setDisplayName("§cWylacz wszystko");
+	    id.setDisplayName(Main.message("disable_all"));
 	    d.setItemMeta(id);
 	    
 	    ItemStack s = new ItemStack(Material.CHEST);
 	    ItemMeta is = s.getItemMeta();
-	    is.setDisplayName("§cDrop ze skrzynek");
+	    is.setDisplayName(Main.message("case_title"));
 	    s.setItemMeta(is);
 	    
 	    inv.setItem(27, en);
@@ -94,7 +94,7 @@ public class DropGui {
 			ItemMeta im = it.getItemMeta();
 			assert im != null;
 			im.setDisplayName(item.getName().replace("&", "§"));
-			im.setLore(Arrays.asList("§7> Szansa na drop:§a " + item.getChance() + "%", setStatus(user.getDrop(item))));
+			im.setLore(Main.messagesreplace("item_lore", Arrays.asList("%chance","%status"), Arrays.asList(String.valueOf(item.getChance()),setStatus(user.getDrop(item)))));
 			NamespacedKey key = new NamespacedKey(Main.getPlugin(Main.class), "itemclass");
 			PersistentDataType<byte[], Item> itemclasstype = new ConfigurationSerializableDataType<>(Item.class);
 			PersistentDataContainer pdc = im.getPersistentDataContainer();

@@ -1,5 +1,6 @@
 package me.voten.vcore.commands;
 
+import me.voten.vcore.Main;
 import me.voten.vcore.utils.User;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -25,27 +26,23 @@ public class MsgCommand implements CommandExecutor {
 				}
 			}
 			if(j == 0) {
-				sender.sendMessage("§cGracz nie jest online!");
+				sender.sendMessage(Main.message("player_offline"));
 				return true;
 			}
 
 			assert rec != null;
 			User user = User.getUserByUUID(rec.getUniqueId());
-			if(!sender.getName().equals(rec.getName())) {
-				assert user != null;
-				if(user.isPrivatemessages()) {
-					rec.sendMessage("§a" + sender.getName() + " §7-> §a" + rec.getName() + " §7" + message);
-					sender.sendMessage("§a" + sender.getName() + " §7-> §a" + rec.getName() + " §7" + message);
-				}
-				else {
-					sender.sendMessage("§a" + rec.getName() + "§c ma wylaczone wiadomosci prywatne");
-				}
-			}else {
-				sender.sendMessage("§cNie mozesz wyslac wiadomosci do siebie!");
+			assert user != null;
+			if(user.isPrivatemessages()) {
+				rec.sendMessage("§a" + sender.getName() + " §7-> §a" + rec.getName() + " §7" + message);
+				sender.sendMessage("§a" + sender.getName() + " §7-> §a" + rec.getName() + " §7" + message);
+			}
+			else {
+				sender.sendMessage(Main.message("msg_player_disabled_chat"));
 			}
 		}
 		else {
-			sender.sendMessage("§cMusisz podac nick i wpisac wiadomosc do gracza!");
+			sender.sendMessage(Main.message("msg_player_missing_args"));
 		}
 		
 		return false;

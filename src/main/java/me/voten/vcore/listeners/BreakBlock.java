@@ -1,5 +1,6 @@
 package me.voten.vcore.listeners;
 
+import me.voten.vcore.Main;
 import me.voten.vcore.utils.Item;
 import me.voten.vcore.utils.User;
 import org.bukkit.Material;
@@ -19,7 +20,7 @@ public class BreakBlock implements Listener {
 		if(e.getBlock().getType().equals(Material.STONE)) {
 			for(Item item : Item.allItems){
 				if(Math.random() * 100 < item.getChance() && user.getDrop(item)){
-					if(user.isDropmessages()) p.sendMessage("§8Wydropiles "+item.getName());
+					if(user.isDropmessages()) p.sendMessage(Main.messagereplace("droped", "%item", item.getName()));
 					p.getWorld().dropItem(b.getLocation(), item.getItem());
 				}
 				if(item.getItem().getType().equals(b.getType()) || !user.isCobbledrop()){

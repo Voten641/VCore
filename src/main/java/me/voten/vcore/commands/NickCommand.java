@@ -20,20 +20,24 @@ public class NickCommand implements CommandExecutor{
 				Player p = Bukkit.getPlayer(args[0]);
 				nick = args[1].replace("&", "§")+"§r";
 				p.setDisplayName(nick);
-				p.sendMessage("§cUstawiono nick jako: "+ nick);
+				p.sendMessage(Main.messagereplace("nick_set", "%nick", nick));
 			}
 			else if(args.length == 1) {
-				sender.sendMessage("§cMusisz podac nowa nazwe!");
+				if(!(sender instanceof Player)) return false;
+				Player p = (Player) sender;
+				nick = args[1].replace("&", "§")+"§r";
+				p.setDisplayName(nick);
+				p.sendMessage(Main.messagereplace("nick_set", "%nick", nick));
 			}
 			else if(args.length == 0) {
-				sender.sendMessage("§cMusisz podac nick gracza!");
+				sender.sendMessage(Main.message("nick_missing_new"));
 			}
 			else{
-				sender.sendMessage("§cPodales zbyt duzo argumentow!");
+				sender.sendMessage(Main.message("nick_too_many_args"));
 			}
 		}
 		else {
-			sender.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "§"));
+			sender.sendMessage(Main.message("permission_message"));
 		}
 		
 		return true;

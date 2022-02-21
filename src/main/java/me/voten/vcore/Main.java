@@ -1,20 +1,20 @@
 package me.voten.vcore;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 
 import me.voten.vcore.utils.User;
+import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Server;
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
@@ -47,7 +47,8 @@ public class Main extends JavaPlugin{
 	private int clear = 0;
 	public boolean chatstatus = true;
 	private static Main inst;
-	
+	private static FileConfiguration messages;
+
 	public Main() {
 		inst = this;
 	}
@@ -68,6 +69,17 @@ public class Main extends JavaPlugin{
 	    } catch (IOException e) {
 	        // Failed to submit the stats :-(
 	    }
+		List<String> list = new ArrayList<>();
+		InputStream in = Main.class.getResourceAsStream("/messages_en.yml");
+		File file = null;
+		try {
+			file = File.createTempFile("messages", ".yml");
+			assert in != null;
+			FileUtils.copyToFile(in, file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		messages = YamlConfiguration.loadConfiguration(file);
 		this.saveDefaultConfig();
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
@@ -145,36 +157,9 @@ public class Main extends JavaPlugin{
 
 	public void ClearItems() {
 		Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
-			if(clear==1) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 30 sekund");
-				clear++;
-			}
-			else if(clear==10) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 20 sekund");
-				clear++;
-			}
-			else if(clear==20) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 10 sekund");
-				clear++;
-			}
-			else if(clear==25) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 5 sekund");
-				clear++;
-			}
-			else if(clear==26) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 4 sekund");
-				clear++;
-			}
-			else if(clear==27) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 3 sekund");
-				clear++;
-			}
-			else if(clear==28) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 2 sekund");
-				clear++;
-			}
-			else if(clear==29) {
-				Bukkit.broadcastMessage("§cUsuwanie itemow za 1 sekund");
+			List<Integer> t = Arrays.asList(0,10,20,25,26,27,28,29);
+			if(t.contains(clear)){
+				Bukkit.broadcastMessage(messagereplace("item_clear_in", "%time", String.valueOf(30-clear)));
 				clear++;
 			}
 			else if(clear==30) {
@@ -200,24 +185,58 @@ public class Main extends JavaPlugin{
 				} catch (InterruptedException | ExecutionException e) {
 					e.printStackTrace();
 				}
-				if(usuniete == 1) {
-					Bukkit.broadcastMessage("§cUsunieto "+ usuniete +" item z ziemi!");
-				}
-				else if(usuniete == 2 || usuniete == 3 || usuniete == 4) {
-					Bukkit.broadcastMessage("§cUsunieto "+ usuniete +" itemy z ziemi!");
-				}
-				else {
-					Bukkit.broadcastMessage("§cUsunieto "+ usuniete +" itemow z ziemi!");
-				}
+				Bukkit.broadcastMessage(messagereplace("item_cleared","%ammount", String.valueOf(usuniete)));
 				clear++;
 			}
 			else if(clear==570) {
-				clear=1;
+				clear=0;
 			}
 			else {
 				clear++;
 			}
 		}, 0, 20);
+	}
+
+	public static List<String> messages(String option){
+		List<String> result = new ArrayList<>();
+		for (String s : messages.getStringList(option)){
+			result.add(s.replace("&", "§"));
+		}
+		return result;
+	}public static List<String> messagesreplace(String option, String r, String r2){
+		List<String> result = new ArrayList<>();
+		for (String s : messages.getStringList(option)){
+			result.add(s.replace("&", "§").replace(r, r2));
+		}
+		return result;
+	}public static List<String> messagesreplace(String option, List<String> r, List<String> r2){
+		List<String> result = new ArrayList<>();
+		if(r.size() != r2.size()) return null;
+		for (String s : messages.getStringList(option)){
+			for(int i = 0; i < r.size(); i++){
+				result.add(s.replace(r.get(i), r2.get(i)).replace("&", "§"));
+			}
+		}
+		return result;
+	}
+	public static String message(String option){
+		return messages.getString(option).replace("&", "§");
+	}
+	public static String messagereplace(String option, String r, String r2){
+		String s = messages.getString(option);
+		assert s != null;
+		s = s.replace(r, r2);
+		return s.replace("&", "§");
+	}
+	public static String messagereplace(String option, List<String> r, List<String> r2){
+		String s = messages.getString(option);
+		assert s != null;
+		if(r.size() == r2.size()){
+			for(int i = 0; i < r.size(); i++){
+				s = s.replace(r.get(i), r2.get(i));
+			}
+		}
+		return s.replace("&", "§");
 	}
 
 	@SuppressWarnings("deprecation")

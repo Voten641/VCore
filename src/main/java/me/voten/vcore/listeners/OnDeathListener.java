@@ -19,8 +19,8 @@ public class OnDeathListener implements Listener {
 				p.spigot().respawn();
 			}
 		};
-		task.runTaskLater(Main.getInst(), 1*20);
-	    p.sendTitle("§c§lZginales!", "§cNie poddawaj sie, graj dalej :)");
+		task.runTaskLater(Main.getInst(), 20);
+	    p.sendTitle(Main.message("death_title_1"), Main.message("death_title_2"));
 	}
 	
 }

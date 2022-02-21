@@ -1,5 +1,6 @@
 package me.voten.vcore.commands;
 
+import me.voten.vcore.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +18,7 @@ public class EcCommand implements CommandExecutor {
 			EcGui.casemenu(p);
 		}
 		else {
-			p.sendMessage("&cNie masz permissji!");
+			p.sendMessage(Main.message("permission_message"));
 		}
 		
 		return false;

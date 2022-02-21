@@ -1,5 +1,6 @@
 package me.voten.vcore.listeners;
 
+import me.voten.vcore.Main;
 import me.voten.vcore.utils.User;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +18,7 @@ public class OnMoveListener implements Listener {
 		if(user.isSpawnteleporting()) {
 			if(e.getFrom().getBlockX() != e.getTo().getBlockX() || e.getFrom().getBlockY() != e.getTo().getBlockY() || e.getFrom().getBlockZ() != e.getTo().getBlockZ()) {
 				user.setSpawnteleporting(false);
-				p.sendMessage("§cAnulowano teleportacje");
+				p.sendMessage(Main.message("teleport_canceled"));
 			}
 		}
 		if(user.isPlayerteleporting()) {
@@ -26,7 +27,7 @@ public class OnMoveListener implements Listener {
 				user.setPlayerteleporting(false);
 				user.setTeleporttoplayer(null);
 				User.getUserByUUID(tep.getUniqueId()).getTeleportsfromplayers().remove(p);
-				p.sendMessage("§cAnulowano teleportacje");
+				p.sendMessage(Main.message("teleport_canceled"));
 			}
 		}
 	}

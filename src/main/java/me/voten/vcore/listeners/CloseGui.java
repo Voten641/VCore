@@ -1,5 +1,6 @@
 package me.voten.vcore.listeners;
 
+import me.voten.vcore.Main;
 import me.voten.vcore.utils.User;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +11,7 @@ public class CloseGui implements Listener {
 	
 	@EventHandler
 	public void InventoryClose(InventoryCloseEvent e) {
-		if(e.getView().getTitle().equals("§c§lEnderChest")){
+		if(e.getView().getTitle().equals(Main.message("enderchest_title"))){
 			Player p = (Player) e.getPlayer();
 			User user = User.getUserByUUID(p.getUniqueId());
 			for (int i = 0; i < user.getEnderchestslots(); i++){

@@ -30,10 +30,10 @@ public class RepairAllCommand implements CommandExecutor {
 					t.setItemMeta(im);
 				}
 			}
-			p.sendMessage("§7Naprawiono wszystkie przedmioty");
+			p.sendMessage(Main.message("repair_all"));
 		}
 		else {
-			p.sendMessage(Main.getInst().getConfig().getString("PermissionMessage").replace("&", "§"));
+			p.sendMessage(Main.message("permission_message"));
 		}
 		return false;
 	}

@@ -1,7 +1,9 @@
 package me.voten.vcore.commands;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import me.voten.vcore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -19,11 +21,9 @@ public class CasesCommand implements CommandExecutor {
 	public static ItemMeta Cases() {
 		ItemStack i = new ItemStack(Material.ACACIA_DOOR);
 	    ItemMeta on = i.getItemMeta();
-	    	ArrayList<String> loreon = new ArrayList<String>();
-		    loreon.add("§7§ Postaw aby otworzyc");
-		    loreon.add("§7§ Drop mozna sprawdzic pod komenda §a/case");
+	    	List<String> loreon = Main.messages("case_lore");
 		    on.setLore(loreon);
-		    on.setDisplayName("§a§lWeedCase");
+		    on.setDisplayName(Main.message("case_name"));
 		    
 		return on;
 	}

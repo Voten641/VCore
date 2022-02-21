@@ -24,14 +24,14 @@ public class TpaCommand implements CommandExecutor {
 				}
 			}
 			if(j == 0) {
-				sender.sendMessage("§cGracz nie jest online!");
+				sender.sendMessage(Main.message("pplayer_offline"));
 				return true;
 			}
 			if(p!=tep) {
-				p.sendMessage("§aProsba o teleportacje zostala wyslana");
-				tep.sendMessage("§aGracz " + p.getDisplayName() + " wysyla ci prosbe o teleportacje");
-				tep.sendMessage("§aAby zaakceptowac wpisz /tpaccept");
-				tep.sendMessage("§cJezeli odrzucic teleportacje wpisz /tpdeny");
+				p.sendMessage(Main.message("tpa_sent_p1"));
+				for(String s : Main.messagesreplace("tpa_sent_p2", "%nick", p.getDisplayName())){
+					tep.sendMessage(s);
+				}
 				User u1 = User.getUserByUUID(p.getUniqueId());
 				User u2 = User.getUserByUUID(tep.getUniqueId());
 				u1.setTeleporttoplayer(tep);
@@ -40,7 +40,7 @@ public class TpaCommand implements CommandExecutor {
 			}
 		}
 		else {
-			p.sendMessage("§cPoprawne uzycie /tpa [nick]");
+			p.sendMessage(Main.messagereplace("usage", "%command", "/tpa [nick]"));
 		}
 		
 		return false;
